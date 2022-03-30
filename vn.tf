@@ -32,8 +32,8 @@ resource "azurerm_virtual_network" "example" {
   }
 }
 
-resource "azurerm_network_security_rule" "example" {
-  name                        = "test123"
+resource "azurerm_network_security_rule" "rule1" {
+  name                        = "rule1"
   priority                    = 100
   direction                   = "Outbound"
   access                      = "Allow"
@@ -45,3 +45,32 @@ resource "azurerm_network_security_rule" "example" {
   resource_group_name         = azurerm_resource_group.example.name
   network_security_group_name = azurerm_network_security_group.example.name
 }
+
+resource "azurerm_network_security_rule" "rule2" {
+  name                        = "rule2"
+  priority                    = 100
+  direction                   = "Outbound"
+  access                      = "Deny"
+  protocol                    = "Tcp"
+  source_port_range           = "*"
+  destination_port_range      = "https"
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+  resource_group_name         = azurerm_resource_group.example.name
+  network_security_group_name = azurerm_network_security_group.example.name
+}
+
+resource "azurerm_network_security_rule" "rule3" {
+  name                        = "rule3"
+  priority                    = 100
+  direction                   = "Outbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+  source_port_range           = "*"
+  destination_port_range      = "https"
+  source_address_prefix       = "1.1.1.1/32"
+  destination_address_prefix  = "2.2.2.2/32"
+  resource_group_name         = azurerm_resource_group.example.name
+  network_security_group_name = azurerm_network_security_group.example.name
+}
+
