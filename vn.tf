@@ -33,7 +33,7 @@ resource "azurerm_virtual_network" "example" {
 }
 
 resource "azurerm_network_security_rule" "rule1" {
-  name                        = "rule1"
+  name                        = "rule11"
   priority                    = 100
   direction                   = "Outbound"
   access                      = "Allow"
@@ -47,7 +47,7 @@ resource "azurerm_network_security_rule" "rule1" {
 }
 
 resource "azurerm_network_security_rule" "rule2" {
-  name                        = "rule2"
+  name                        = "rule12"
   priority                    = 100
   direction                   = "Outbound"
   access                      = "Deny"
@@ -61,7 +61,7 @@ resource "azurerm_network_security_rule" "rule2" {
 }
 
 resource "azurerm_network_security_rule" "rule3" {
-  name                        = "rule3"
+  name                        = "rule13"
   priority                    = 100
   direction                   = "Outbound"
   access                      = "Allow"
