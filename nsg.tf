@@ -40,7 +40,7 @@ resource "azurerm_subnet_network_security_group_association" "example" {
   network_security_group_id = azurerm_network_security_group.example.id
 }
 
-resource "azurerm_subnet" "fail" {
+resource "azurerm_subnet" "fail2" {
   name                 = "frontend"
   resource_group_name  = azurerm_resource_group.example.name
   virtual_network_name = azurerm_virtual_network.example.name
