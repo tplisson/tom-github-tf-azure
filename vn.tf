@@ -1,18 +1,18 @@
-resource "azurerm_resource_group" "example" {
+resource "azurerm_resource_group" "rg" { 
   name     = "example-resources"
   location = "West Europe"
 }
 
-resource "azurerm_network_security_group" "example" {
+resource "azurerm_network_security_group" "nsg" {
   name                = "example-security-group"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
 }
 
 resource "azurerm_virtual_network" "vn1" {
   name                = "example-network-1"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
   address_space       = ["10.1.0.0/16"]
   dns_servers         = ["10.1.0.4", "10.1.0.5"]
 
@@ -24,7 +24,7 @@ resource "azurerm_virtual_network" "vn1" {
   subnet {
     name           = "subnet2"
     address_prefix = "10.1.2.0/24"
-    security_group = azurerm_network_security_group.example.id
+    security_group = azurerm_network_security_group.nsg.id
   }
 
   tags = {
@@ -34,8 +34,8 @@ resource "azurerm_virtual_network" "vn1" {
 
 resource "azurerm_virtual_network" "vn2" {
   name                = "example-network-2"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
   address_space       = ["10.2.0.0/16"]
   dns_servers         = ["10.2.0.4", "10.2.0.5"]
 
@@ -47,15 +47,15 @@ resource "azurerm_virtual_network" "vn2" {
 
 resource "azurerm_virtual_network" "vn3" {
   name                = "example-network-3"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
   address_space       = ["10.3.0.0/16"]
   dns_servers         = ["10.3.0.4", "10.3.0.5"]
   
   subnet {
     name           = "subnet3"
     address_prefix = "10.3.3.0/24"
-    security_group = azurerm_network_security_group.example.id
+    security_group = azurerm_network_security_group.nsg.id
   }
   
   tags = {
@@ -73,8 +73,8 @@ resource "azurerm_network_security_rule" "rule1" {
   destination_port_range      = "https"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
-  resource_group_name         = azurerm_resource_group.example.name
-  network_security_group_name = azurerm_network_security_group.example.name
+  resource_group_name         = azurerm_resource_group.rg.name
+  network_security_group_name = azurerm_network_security_group.nsg.name
 }
 
 resource "azurerm_network_security_rule" "rule2" {
@@ -87,8 +87,8 @@ resource "azurerm_network_security_rule" "rule2" {
   destination_port_range      = "https"
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
-  resource_group_name         = azurerm_resource_group.example.name
-  network_security_group_name = azurerm_network_security_group.example.name
+  resource_group_name         = azurerm_resource_group.rg.name
+  network_security_group_name = azurerm_network_security_group.nsg.name
 }
 
 resource "azurerm_network_security_rule" "rule3" {
@@ -101,7 +101,7 @@ resource "azurerm_network_security_rule" "rule3" {
   destination_port_range      = "https"
   source_address_prefix       = "1.1.1.1/32"
   destination_address_prefix  = "2.2.2.2/32"
-  resource_group_name         = azurerm_resource_group.example.name
-  network_security_group_name = azurerm_network_security_group.example.name
+  resource_group_name         = azurerm_resource_group.rg.name
+  network_security_group_name = azurerm_network_security_group.nsg.name
 }
 
