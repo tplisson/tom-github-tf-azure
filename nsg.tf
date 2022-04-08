@@ -55,7 +55,7 @@ resource "azurerm_subnet" "bad" {
 #   address_prefixes     = ["10.0.3.0/24"]
 # }
 
-# resource "azurerm_subnet_network_security_group_association" "nsgb" {
-#   subnet_id                 = azurerm_subnet.notsobad.id
-#   network_security_group_id = azurerm_network_security_group.nsg.id
-# }
+resource "azurerm_subnet_network_security_group_association" "nsgb" {
+  subnet_id                 = azurerm_subnet.notsobad.id
+  network_security_group_id = azurerm_network_security_group.nsg.id
+}
