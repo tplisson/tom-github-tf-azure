@@ -23,7 +23,7 @@ resource "azurerm_network_security_group" "nsg" {
   resource_group_name = azurerm_resource_group.rg.name
 
   security_rule {
-    name                       = "rule"
+    name                       = "rule1"
     priority                   = 100
     direction                  = "Inbound"
     access                     = "Allow"
