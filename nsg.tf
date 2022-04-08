@@ -23,7 +23,7 @@ resource "azurerm_network_security_group" "nsg" {
   resource_group_name = azurerm_resource_group.rg.name
 
   security_rule {
-    name                       = "rule"
+    name                       = "rule100"
     priority                   = 100
     direction                  = "Inbound"
     access                     = "Allow"
@@ -35,7 +35,7 @@ resource "azurerm_network_security_group" "nsg" {
   }
 }
 
-resource "azurerm_subnet_network_security_group_association" "nsga" {
+resource "azurerm_subnet_network_security_group_association" "assoc" {
   subnet_id                 = azurerm_subnet.good.id
   network_security_group_id = azurerm_network_security_group.nsg.id
 }
@@ -54,7 +54,7 @@ resource "azurerm_subnet" "bad" {
 #   address_prefixes     = ["10.0.3.0/24"]
 # }  
 
-resource "azurerm_subnet_network_security_group_association" "nsgb" {
-  subnet_id                 = azurerm_subnet.notsobad.id
-  network_security_group_id = azurerm_network_security_group.nsg.id
-}
+# resource "azurerm_subnet_network_security_group_association" "assoc2" {
+#   subnet_id                 = azurerm_subnet.notsobad.id
+#   network_security_group_id = azurerm_network_security_group.nsg.id
+# }
