@@ -1,3 +1,3 @@
 # tom-github-tf-azure
 
-Test repoitoryfor Terraform resources
+Test repoitory for Terraform resources
