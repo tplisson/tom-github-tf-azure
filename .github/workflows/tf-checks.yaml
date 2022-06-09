@@ -21,4 +21,4 @@ jobs:
       - name: Terraform Format
         run: terraform fmt -check
       - name: Checkov version
-        run: checkov --version 
+        run: checkov --version
