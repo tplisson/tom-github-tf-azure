@@ -9,14 +9,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  init:
-    runs-on: self-hosted
-    steps:
-      - run: echo 'hello cloud gurus'
-      - run: echo $HOSTNAME
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
-       - name: Terraform Format
-         id: fmt
-         run: terraform fmt -check
+      # This step checks out a copy of your repository.
+      - uses: actions/checkout@v3
+      - name: Terraform Format
+        run: terraform fmt -check
+      - uses: ./.github/actions/hello-world-action
