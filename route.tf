@@ -1,8 +1,3 @@
-resource "azurerm_resource_group" "rg" { 
-  name     = "example-resources"
-  location = "West Europe"
-}
-
 resource "azurerm_route_table" "rt" {
   name                = "acceptanceTestRouteTable1"
   location            = azurerm_resource_group.rg.location
