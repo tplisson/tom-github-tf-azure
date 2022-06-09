@@ -9,14 +9,16 @@ on:
   workflow_dispatch:
 
 jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkov Install / Update
+        run: pip3 install -U checkov
   build:
     runs-on: ubuntu-latest
     steps:
-      # This step checks out a copy of your repository.
       - uses: actions/checkout@v3
       - name: Terraform Format
         run: terraform fmt -check
-      - name: Checkov Install / Update
-        run: pip3 install -U checkov
       - name: Checkov version
-        run: checkov --version 
+        run: checkov --version
