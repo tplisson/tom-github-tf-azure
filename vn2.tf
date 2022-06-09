@@ -1,8 +1,3 @@
-resource "azurerm_resource_group" "rg" {
-  name     = "example-resources"
-  location = "Canada Central"
-}
-
 resource "azurerm_virtual_network" "fail" {
   name                = "fail"
   address_space       = ["10.1.0.0/16"]
