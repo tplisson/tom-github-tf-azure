@@ -1,13 +1,13 @@
 resource "azurerm_resource_group" "tom_aks" {
   name     = "example-resources"
-  location = "Canada Central"
+  location = "West Europe"
 }
 
 resource "azurerm_kubernetes_cluster" "tom_aks_pass_01" {
   name                = "tomAKSpass01"
   location            = azurerm_resource_group.tom_aks.location
   resource_group_name = azurerm_resource_group.tom_aks.name
-  dns_prefix          = "exampleaks1"
+  dns_prefix          = "tomAKSpass01"
   default_node_pool {
     name       = "default"
     node_count = 1
@@ -43,11 +43,11 @@ resource "azurerm_kubernetes_cluster" "tom_aks_fail_01" {
   }
 }
 
-resource "azurerm_kubernetes_cluster" "tom_aks_fail_01" {
+resource "azurerm_kubernetes_cluster" "tom_aks_fail_02" {
   name                = "tomAKSfail02"
   location            = azurerm_resource_group.tom_aks.location
   resource_group_name = azurerm_resource_group.tom_aks.name
-  dns_prefix          = "tomAKSfail01"
+  dns_prefix          = "tomAKSfail02"
   default_node_pool {
     name       = "default"
     node_count = 1
