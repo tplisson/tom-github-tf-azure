@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "tom_aks" {
-  name     = "example-resources"
+  name     = "tomAKS"
   location = "West Europe"
 }
 
