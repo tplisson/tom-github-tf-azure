@@ -31,7 +31,7 @@ resource "azurerm_kubernetes_cluster" "tom_aks_fail_01" {
   resource_group_name = azurerm_resource_group.tom_aks.name
   dns_prefix          = "tomAKSfail01"
   default_node_pool {
-    name       = "tomAKSnodepool2"
+    name       = "nodepool2"
     node_count = 1
     vm_size    = "Standard_D2_v2"
   }
