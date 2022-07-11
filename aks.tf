@@ -9,7 +9,7 @@ resource "azurerm_kubernetes_cluster" "tom_aks_pass_01" {
   resource_group_name = azurerm_resource_group.tom_aks.name
   dns_prefix          = "tomAKSpass01"
   default_node_pool {
-    name       = "tomAKSnodepool1"
+    name       = "nodepool1"
     node_count = 1
     vm_size    = "Standard_D2_v2"
   }
