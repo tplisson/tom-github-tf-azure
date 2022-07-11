@@ -17,8 +17,6 @@ jobs:
 
       - name: Checkov Install / Update
         run: pip3 install -U checkov
-:
-      - uses: actions/checkout@v3
       
       - name: Terraform Format
         run: terraform fmt -check
@@ -29,7 +27,7 @@ jobs:
       - name: Checkov version
         run: checkov --version
         
-      - name: Test PostgresSQL policies with Checkov
+      - name: Test policies with Checkov
         id: checkov
         uses: bridgecrewio/checkov-action@master
         with:
