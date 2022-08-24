@@ -18,6 +18,7 @@ resource "azurerm_virtual_network" "vn1" {
 
   tags = {
     environment = "Production"
+    yor_trace   = "249fbe07-56ec-4369-b73c-87b6c348b87b"
   }
 }
 
@@ -30,6 +31,7 @@ resource "azurerm_virtual_network" "vn2" {
 
   tags = {
     environment = "Production"
+    yor_trace   = "0dcdf005-5b47-4aed-9bda-1af9da218154"
   }
 }
 
@@ -49,6 +51,7 @@ resource "azurerm_virtual_network" "vn3" {
 
   tags = {
     environment = "Production"
+    yor_trace   = "ce8439a0-2284-40b6-9af9-ee14947868b4"
   }
 }
 
