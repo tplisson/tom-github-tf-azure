@@ -13,7 +13,7 @@ resource "azurerm_virtual_network" "vn1" {
   subnet {
     name           = "subnet2"
     address_prefix = "10.1.2.0/24"
-    security_group = azurerm_network_security_group.nsg.id
+    security_group = azurerm_network_security_group.nsg1.id
   }
 
   tags = {
@@ -44,7 +44,7 @@ resource "azurerm_virtual_network" "vn3" {
   subnet {
     name           = "subnet3"
     address_prefix = "10.3.3.0/24"
-    security_group = azurerm_network_security_group.nsg.id
+    security_group = azurerm_network_security_group.nsg1.id
   }
 
   tags = {
@@ -63,7 +63,7 @@ resource "azurerm_network_security_rule" "rule1" {
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name         = azurerm_resource_group.rg.name
-  network_security_group_name = azurerm_network_security_group.nsg.name
+  network_security_group_name = azurerm_network_security_group.nsg1.name
 }
 
 resource "azurerm_network_security_rule" "rule2" {
@@ -77,7 +77,7 @@ resource "azurerm_network_security_rule" "rule2" {
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name         = azurerm_resource_group.rg.name
-  network_security_group_name = azurerm_network_security_group.nsg.name
+  network_security_group_name = azurerm_network_security_group.nsg1.name
 }
 
 resource "azurerm_network_security_rule" "rule3" {
@@ -91,5 +91,5 @@ resource "azurerm_network_security_rule" "rule3" {
   source_address_prefix       = "1.1.1.1/32"
   destination_address_prefix  = "2.2.2.2/32"
   resource_group_name         = azurerm_resource_group.rg.name
-  network_security_group_name = azurerm_network_security_group.nsg.name
+  network_security_group_name = azurerm_network_security_group.nsg1.name
 }

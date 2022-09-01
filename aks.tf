@@ -4,12 +4,12 @@ resource "azurerm_resource_group" "tom_aks" {
 }
 
 resource "azurerm_kubernetes_cluster" "tom_aks_pass_01" {
-  name                = "tomAKSpass01"
+  name                = "tomakspass01"
   location            = azurerm_resource_group.tom_aks.location
   resource_group_name = azurerm_resource_group.tom_aks.name
-  dns_prefix          = "tomAKSpass01"
+  dns_prefix          = "tomakspass01"
   default_node_pool {
-    name       = "nodepool1"
+    name       = "tomakspass01"
     node_count = 1
     vm_size    = "Standard_D2_v2"
   }
@@ -26,12 +26,12 @@ resource "azurerm_kubernetes_cluster" "tom_aks_pass_01" {
 }
 
 resource "azurerm_kubernetes_cluster" "tom_aks_fail_01" {
-  name                = "tomAKSfail01"
+  name                = "tomaksfail01"
   location            = azurerm_resource_group.tom_aks.location
   resource_group_name = azurerm_resource_group.tom_aks.name
-  dns_prefix          = "tomAKSfail01"
+  dns_prefix          = "tomaksfail01"
   default_node_pool {
-    name       = "nodepool2"
+    name       = "tomaksfail01"
     node_count = 1
     vm_size    = "Standard_D2_v2"
   }
@@ -44,12 +44,12 @@ resource "azurerm_kubernetes_cluster" "tom_aks_fail_01" {
 }
 
 resource "azurerm_kubernetes_cluster" "tom_aks_fail_02" {
-  name                = "tomAKSfail02"
+  name                = "tomaksfail02"
   location            = azurerm_resource_group.tom_aks.location
   resource_group_name = azurerm_resource_group.tom_aks.name
-  dns_prefix          = "tomAKSfail02"
+  dns_prefix          = "tomaksfail02"
   default_node_pool {
-    name       = "tomAKSnodepool3"
+    name       = "tomaksfail02"
     node_count = 1
     vm_size    = "Standard_D2_v2"
   }
