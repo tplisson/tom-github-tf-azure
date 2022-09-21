@@ -41,6 +41,7 @@ resource "azurerm_kubernetes_cluster" "tom_aks_fail_01" {
   tags = {
     Environment = "Production"
   }
+  private_cluster_enabled = true
 }
 
 resource "azurerm_kubernetes_cluster" "tom_aks_fail_02" {
