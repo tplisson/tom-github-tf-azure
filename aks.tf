@@ -1,6 +1,9 @@
 resource "azurerm_resource_group" "tom_aks" {
   name     = "tomAKS"
   location = "West Europe"
+  tags = {
+    yor_trace = "7032368a-81a0-4692-948b-5ae98444f223"
+  }
 }
 
 resource "azurerm_kubernetes_cluster" "tom_aks_pass_01" {
@@ -22,6 +25,7 @@ resource "azurerm_kubernetes_cluster" "tom_aks_pass_01" {
   }
   tags = {
     Environment = "Production"
+    yor_trace   = "b06a3c6f-1483-4331-9023-9ce33b0ae66d"
   }
 }
 
@@ -40,6 +44,7 @@ resource "azurerm_kubernetes_cluster" "tom_aks_fail_01" {
   }
   tags = {
     Environment = "Production"
+    yor_trace   = "0b217506-1ce9-4585-9051-24c7e09fa202"
   }
   private_cluster_enabled = true
 }
@@ -63,5 +68,6 @@ resource "azurerm_kubernetes_cluster" "tom_aks_fail_02" {
   }
   tags = {
     Environment = "Production"
+    yor_trace   = "65fe472f-4ed4-40bf-af86-566632722a3b"
   }
 }
