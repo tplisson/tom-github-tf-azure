@@ -10,7 +10,7 @@ resource "azurerm_kubernetes_cluster" "tom_aks_pass_01" {
   dns_prefix          = "tomakspass01"
   default_node_pool {
     name       = "tomakspass01"
-    node_count = 1
+    node_count = 3
     vm_size    = "Standard_D2_v2"
   }
   identity {
