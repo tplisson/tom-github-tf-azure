@@ -59,7 +59,7 @@ resource "azurerm_kubernetes_cluster" "tom_aks_fail_02" {
   }
   azure_active_directory_role_based_access_control {
     managed            = true
-    azure_rbac_enabled = false
+    azure_rbac_enabled = true
   }
   tags = {
     Environment = "Production"
