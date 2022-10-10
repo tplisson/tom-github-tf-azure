@@ -1,35 +1,11 @@
-name: Terraform checks
+steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
 
-on:
-  push:
-    branches: 
-      - master
-      
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Python 3.9
-        uses: actions/setup-python@v4
+      - name: Run Bridgecrew 
+        id: Bridgecrew
+        uses: bridgecrewio/bridgecrew-action@master 
+        env:
+          PRISMA_API_URL: https://api2.prismacloud.io
         with:
-          python-version: '3.9'
-
-      - name: Checkov Install / Update
-        run: pip3 install -U checkov
-      
-      - name: Terraform Format
-        run: terraform fmt -check
-        
-      - name: Terraform Validate
-        run: terraform validate
-        
-      - name: Checkov version
-        run: checkov --version
-        
-      - name: Test policies with Checkov
-        id: checkov
-        uses: bridgecrewio/checkov-action@master
-        with:
-          directory: .
-          framework: terraform 
+          api-key: ${{ secrets.BC_API_KEY }}
