@@ -1,0 +1,34 @@
+---
+metadata:
+  name: "Manulife Policy infra2_011 - Ensure resources are only created in permitted locations"
+  id: infra2_011
+  guidelines: "Ensure resources are only created in permitted locations"
+  category: general
+  severity: low
+scope:
+  provider: azure
+definition:
+  and:
+    - cond_type: attribute
+      resource_types:
+        - all
+        # - azurerm_resource_group
+      attribute: location
+      operator: within
+      value:
+        - "Canada Central"
+        - "Canada East"
+        - "East US 2"
+        - "Central US"
+        - "Japan East"
+        - "Japan West"
+        - "East Asia"
+        - "Southeast Asia"
+        - "canadacentral"
+        - "canadaeast"
+        - "eastus2"
+        - "centralus"
+        - "japaneast"
+        - "japanwest"
+        - "eastasia"
+        - "southeastasia"
