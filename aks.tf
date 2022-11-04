@@ -23,6 +23,7 @@ resource "azurerm_kubernetes_cluster" "tom_aks_pass_01" {
   tags = {
     Environment = "Production"
   }
+  local_account_disabled = true
 }
 
 resource "azurerm_kubernetes_cluster" "tom_aks_fail_01" {
