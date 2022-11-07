@@ -1,0 +1,46 @@
+---
+  metadata:
+    name: "Dynamic1 - Ensure Azure subnet is associated with an NSG"
+    id: dynamic1
+    guidelines: "Ensure Azure subnet is associated with an NSG"
+    category: network
+    severity: high
+  scope:
+    provider: azure 
+  definition:
+    or:
+      - and:
+        - cond_type: attribute
+          resource_types:
+            - azurerm_virtual_network
+          attribute: subnet
+          operator: not_exists
+        - cond_type: connection
+          resource_types:
+          - azurerm_subnet
+          connected_resource_types: 
+          - azurerm_virtual_network
+          operator: exists
+        - cond_type: connection
+          resource_types:
+          - azurerm_subnet
+          connected_resource_types: 
+          - azurerm_subnet_network_security_group_association
+          operator: exists
+      - and:
+        - cond_type: attribute
+          resource_types: 
+          - azurerm_virtual_network
+          attribute: subnet
+          operator: exists
+        - cond_type: attribute
+          resource_types:
+            - azurerm_virtual_network
+          attribute: subnet[?(@.address_prefix != '')].security_group
+          operator: jsonpath_exists
+        # - cond_type: attribute
+        #   resource_types:
+        #     - azurerm_virtual_network
+        #   attribute: subnet.*.security_group
+        #   operator: exists
+  
