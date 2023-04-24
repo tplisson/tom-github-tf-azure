@@ -2,6 +2,9 @@ resource "azurerm_route_table" "rt" {
   name                = "acceptanceTestRouteTable1"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
+  tags = {
+    yor_trace = "ef06dd64-83b4-4e79-8785-71ef0b420857"
+  }
 }
 
 resource "azurerm_route" "route1" {
