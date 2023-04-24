@@ -3,6 +3,9 @@ resource "azurerm_virtual_network" "vn" {
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
+  tags = {
+    yor_trace = "c0ca13a7-891f-407b-b56b-d1f01e2bbdb8"
+  }
 }
 
 resource "azurerm_subnet" "subnet1" {
@@ -26,6 +29,9 @@ resource "azurerm_network_security_group" "nsg1" {
     destination_port_range     = "*"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
+  }
+  tags = {
+    yor_trace = "fb9273cf-7704-4d0c-9db2-beef87562739"
   }
 }
 

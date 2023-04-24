@@ -21,6 +21,9 @@ resource "azurerm_network_security_group" "dynamic_nsg_fail" {
       destination_address_prefix = security_rule.value["destination_address_prefix"]
     }
   }
+  tags = {
+    yor_trace = "1d99c401-9a86-42cc-a833-127fc368e3d9"
+  }
 }
 
 resource "azurerm_network_security_group" "dynamic_nsg_pass" {
@@ -41,6 +44,9 @@ resource "azurerm_network_security_group" "dynamic_nsg_pass" {
       source_address_prefix      = security_rule.value["source_address_prefix"]
       destination_address_prefix = security_rule.value["destination_address_prefix"]
     }
+  }
+  tags = {
+    yor_trace = "2ddee7a4-9df3-496a-9d43-0c9127863aeb"
   }
 }
 
