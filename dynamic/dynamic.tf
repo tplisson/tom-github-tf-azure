@@ -21,6 +21,10 @@ resource "azurerm_network_security_group" "dynamic_nsg_fail" {
       destination_address_prefix = security_rule.value["destination_address_prefix"]
     }
   }
+  tags = {
+    owner     = "tplisson"
+    yor_trace = "b8df95b4-9638-4155-98aa-52a586786a94"
+  }
 }
 
 resource "azurerm_network_security_group" "dynamic_nsg_pass" {
@@ -41,6 +45,10 @@ resource "azurerm_network_security_group" "dynamic_nsg_pass" {
       source_address_prefix      = security_rule.value["source_address_prefix"]
       destination_address_prefix = security_rule.value["destination_address_prefix"]
     }
+  }
+  tags = {
+    owner     = "tplisson"
+    yor_trace = "8ba5f520-46f5-4b77-9927-925b485c7ccb"
   }
 }
 
