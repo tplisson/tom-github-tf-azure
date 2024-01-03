@@ -18,6 +18,8 @@ resource "azurerm_virtual_network" "vn1" {
 
   tags = {
     environment = "Production"
+    owner       = "tplisson"
+    yor_trace   = "b92001b5-82f6-41ee-86c8-4e414ae6d1aa"
   }
 }
 
@@ -30,6 +32,8 @@ resource "azurerm_virtual_network" "vn2" {
 
   tags = {
     environment = "Production"
+    owner       = "tplisson"
+    yor_trace   = "c3d4816f-1685-48a2-b745-1fa6e08b43dd"
   }
 }
 
@@ -49,6 +53,8 @@ resource "azurerm_virtual_network" "vn3" {
 
   tags = {
     environment = "Production"
+    owner       = "tplisson"
+    yor_trace   = "9dc69fc9-a6fa-40a1-be87-d3af8ecfc144"
   }
 }
 
